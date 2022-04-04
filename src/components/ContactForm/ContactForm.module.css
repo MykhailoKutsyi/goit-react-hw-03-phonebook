@@ -1,0 +1,17 @@
+input {
+  display: block;
+  width: 250px;
+  height: 30px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.submitButton {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 30px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background-color: #778899;
+}
