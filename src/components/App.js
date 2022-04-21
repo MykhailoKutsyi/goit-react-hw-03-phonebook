@@ -1,8 +1,7 @@
-// import { render } from '@testing-library/react'
 import React, { Component } from 'react';
 import ContactForm from './ContactForm';
 
-import AddContacts from './ContactList';
+import ContactList from './ContactList';
 
 import Filter from './Filter';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -61,9 +60,11 @@ class App extends Component {
     );
   };
 
-  deleteContact = contactId => {
+  deleteContact = contactName => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+      contacts: prevState.contacts.filter(
+        contact => contact.name !== contactName
+      ),
     }));
   };
 
@@ -71,14 +72,13 @@ class App extends Component {
     const { filter } = this.state;
     const { addContact, getFilterValue, deleteContact } = this;
     const filtered = this.filteredContacts();
-
     return (
       <>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={addContact} />
         <h1>Contacts</h1>
         <Filter value={filter} changeFilter={getFilterValue} />
-        <AddContacts contacts={filtered} onDeleteContact={deleteContact} />
+        <ContactList contacts={filtered} onDeleteContact={deleteContact} />
       </>
     );
   }
