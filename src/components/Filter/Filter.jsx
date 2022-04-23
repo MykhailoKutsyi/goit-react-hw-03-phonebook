@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 const Filter = ({ changeFilter }) => {
   return (
-    <>
-      <label>
-        Filter
-        <input type="text" onChange={changeFilter} placeholder="Search..." />
-      </label>
-    </>
+    <label>
+      Filter
+      <input type="text" onChange={changeFilter} placeholder="Search..." />
+    </label>
   );
 };
 

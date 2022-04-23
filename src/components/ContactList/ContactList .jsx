@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import s from './ContactList.module.css';
 const ContactList = ({ contacts, onDeleteContact }) => {
   return (
-    <>
-      <ul className={s.list}>
-        {contacts.map(({ id, name, number }) => (
-          <ContactListItem
-            key={id}
-            name={name}
-            number={number}
-            onDeleteContact={onDeleteContact}
-          />
-        ))}
-      </ul>
-    </>
+    <ul className={s.list}>
+      {contacts.map(({ id, name, number }) => (
+        <ContactListItem
+          key={id}
+          id={id}
+          name={name}
+          number={number}
+          onDeleteContact={onDeleteContact}
+        />
+      ))}
+    </ul>
   );
 };
 
