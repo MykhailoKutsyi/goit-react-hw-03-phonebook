@@ -26,7 +26,7 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate(prevState) {
+  componentDidUpdate(prevProps, prevState) {
     const nextContacts = this.state.contacts;
     const prevContacts = prevState.contacts;
 
@@ -67,7 +67,6 @@ class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
     const { addContact, getFilterValue, deleteContact } = this;
     const filtered = this.filteredContacts();
     return (
@@ -75,7 +74,7 @@ class App extends Component {
         <h1>Phonebook</h1>
         <ContactForm onSubmit={addContact} />
         <h1>Contacts</h1>
-        <Filter value={filter} changeFilter={getFilterValue} />
+        <Filter changeFilter={getFilterValue} />
         <ContactList contacts={filtered} onDeleteContact={deleteContact} />
       </>
     );
